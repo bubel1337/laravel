@@ -1,14 +1,11 @@
-<?php
-@extends('layout')
+@extends('layouts.main')
 
 @section('content')
-    <h1>All Posts</h1>
-
+    <h1>Main page</h1>
+    <h4>Posts:</h4>
     <ul>
-        @foreach ($posts as $post)
-            <li><a href="/posts/{{ $post->id }}">{{ $post->title }}</a></li>
+        @foreach($posts as $post)
+            <li>{{ $post->name }}</li>
         @endforeach
     </ul>
-
-    <a href="/posts/create">Create Post</a>
 @endsection

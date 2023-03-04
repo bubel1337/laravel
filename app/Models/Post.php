@@ -8,9 +8,22 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory;
-};
 
-class Post extends Model
-{
-    protected $fillable = ['title', 'body'];
-};
+    protected $fillable = [
+        'name',
+        'title',
+        'description',
+        'author_id',
+    ];
+
+    protected $hidden = [
+        'id',
+        'created_at',
+        'updated_at'
+    ];
+
+    public function author()
+    {
+        return $this->belongsTo(Author::class);
+    }
+}
